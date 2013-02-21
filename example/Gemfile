@@ -1,0 +1,6 @@
+source :rubygems
+
+gem 'rack-in-app-purchase', :require => 'rack/in-app-purchase', :path => File.join(__FILE__, "../..")
+
+gem 'thin'
+gem 'pg'
