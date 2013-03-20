@@ -18,8 +18,8 @@ module Rack
 
     Sequel.extension :core_extensions, :migration
 
-    autoload :Product, ::File.join(::File.dirname(__FILE__), 'in-app-purchase/models/product')
-    autoload :Receipt, ::File.join(::File.dirname(__FILE__), 'in-app-purchase/models/receipt')
+    autoload :Product, 'rack/in-app-purchase/models/product'
+    autoload :Receipt, 'rack/in-app-purchase/models/receipt'
 
     disable :raise_errors, :show_exceptions
 
