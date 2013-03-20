@@ -12,8 +12,8 @@ Gem::Specification.new do |s|
   s.summary     = "Rack::InAppPurchase"
   s.description = "Rack middleware for in-app purchase receipt verification and product listing."
 
-  s.add_development_dependency "rspec", "~> 0.6.1"
-  s.add_development_dependency "rake",  "~> 0.9.2"
+  s.add_development_dependency "rspec", "~> 0.6"
+  s.add_development_dependency "rake",  "~> 0.9"
 
   s.add_dependency "rack", "~> 1.4"
   s.add_dependency "sinatra", "~> 1.3"
