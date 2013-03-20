@@ -16,14 +16,14 @@ module Rack
     use Rack::PostBodyContentTypeParser
     helpers Sinatra::Param
 
-    Sequel.extension :core_extensions, :migration
-
     autoload :Product, 'rack/in-app-purchase/models/product'
     autoload :Receipt, 'rack/in-app-purchase/models/receipt'
 
     disable :raise_errors, :show_exceptions
 
     configure do
+      Sequel.extension :core_extensions, :migration
+
       if ENV['DATABASE_URL']
         DB = Sequel.connect(ENV['DATABASE_URL'])
         Sequel::Migrator.run(DB, ::File.join(::File.dirname(__FILE__), "in-app-purchase/migrations"), table: 'in_app_purchase_schema_info')
