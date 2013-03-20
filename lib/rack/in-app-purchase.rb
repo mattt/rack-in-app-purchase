@@ -11,7 +11,7 @@ require 'venice'
 
 module Rack
   class InAppPurchase < Sinatra::Base
-    VERSION = '0.0.2'
+    VERSION = '0.1.0'
 
     use Rack::PostBodyContentTypeParser
     helpers Sinatra::Param
@@ -22,6 +22,13 @@ module Rack
     autoload :Receipt, ::File.join(::File.dirname(__FILE__), 'in-app-purchase/models/receipt')
 
     disable :raise_errors, :show_exceptions
+
+    configure do
+      if ENV['DATABASE_URL']
+        DB = Sequel.connect(ENV['DATABASE_URL'])
+        Sequel::Migrator.run(DB, ::File.join(::File.dirname(__FILE__), "in-app-purchase/migrations"), table: 'in_app_purchase_schema_info')
+      end
+    end
 
     before do
       content_type :json

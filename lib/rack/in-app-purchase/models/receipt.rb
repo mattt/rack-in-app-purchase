@@ -1,12 +1,5 @@
 module Rack
-  class InAppPurchase
-    if ENV['DATABASE_URL']
-      DB = Sequel.connect(ENV['DATABASE_URL'])
-      Sequel::Migrator.run(DB, ::File.join(::File.dirname(__FILE__), "../migrations"), table: 'in_app_purchase_schema_info')
-    end
-    
-    Sequel::Migrator.run(DB, ::File.join(::File.dirname(__FILE__), "../migrations"))
-
+  class InAppPurchase  
     class Receipt < Sequel::Model
       plugin :json_serializer, naked: true, except: :id 
       plugin :validation_helpers
