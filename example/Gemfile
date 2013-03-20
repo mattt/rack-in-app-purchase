@@ -1,4 +1,4 @@
-source :rubygems
+source "https://rubygems.org"
 
 gem 'rack-in-app-purchase', :require => 'rack/in-app-purchase', :path => File.join(__FILE__, "../..")
 
