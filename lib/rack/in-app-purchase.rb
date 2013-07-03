@@ -55,9 +55,9 @@ module Rack
           receipt: receipt.to_h,
           content: content
         }.select{|k,v| v}.to_json
-      rescue Venice::ReceiptVerificationError => error
+      rescue Venice::Receipt::VerificationError => error
         {
-          status: Integer(error.message)
+          status: error.message
         }.to_json
       rescue
         halt 500
