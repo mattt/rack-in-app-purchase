@@ -11,7 +11,7 @@ require 'venice'
 
 module Rack
   class InAppPurchase < Sinatra::Base
-    VERSION = '0.1.0'
+    VERSION = '0.1.1'
 
     use Rack::PostBodyContentTypeParser
     helpers Sinatra::Param
