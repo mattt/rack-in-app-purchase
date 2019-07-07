@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Sequel.migration do
   up do
     create_table :in_app_purchase_products do
@@ -9,7 +11,7 @@ Sequel.migration do
       column :description,                  :varchar
       column :price,                        :float8
       column :price_locale,                 :varchar
-      column :is_enabled,                   :boolean,   default: true
+      column :is_enabled,                   :boolean, default: true
 
       index :product_identifier
       index :type
@@ -36,7 +38,7 @@ Sequel.migration do
       index :app_item_id
     end
   end
-  
+
   down do
     drop_table :in_app_purchase_products
     drop_table :in_app_purchase_receipts
