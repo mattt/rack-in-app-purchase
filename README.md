@@ -1,5 +1,7 @@
 # Rack::InAppPurchase
 
+> This project is no longer maintained.
+
 Rack::InAppPurchase is Rack middleware that
 manages products for in-app-purchases and verifies receipts.
 Verifying receipts on the server guards against unauthorized use of paid content,
